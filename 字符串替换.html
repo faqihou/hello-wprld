@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>字符串替换</title>
+        <style>
+            .flaotleft{
+                float: left;
+            }
+            .divp{
+                display: inline;
+                width: 200px;
+                height: 500px;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+                <textarea class="flaotleft"  id="one" style="width:500px;" rows="50"></textarea>
+                <textarea class="flaotleft" id="two" style="width:500px;" rows="50"></textarea>
+                <div class="divp flaotleft">
+                        <textarea  id="three" style="width:200px;" rows="10" style="display: block;"></textarea>
+                        <textarea  id="four" style="width:200px;" rows="10" style="display: block;"></textarea>
+                        <button onclick="asd()">字符串替换</button>
+                </div>
+                <script>
+                   
+                    function asd(){
+                        var str1=document.getElementById("one").value;
+                        var targetarea=document.getElementById("two");
+                        var str2=targetarea.value;
+                        if(str2==""){str2=str1;}
+                        var strreg=document.getElementById("three").value;
+                        var strtarget=document.getElementById("four").value;
+                        var patt=eval(strreg);
+                        var newstr=str2.replace(patt,strtarget);
+                        targetarea.value=newstr;
+    
+                    }
+                </script>
+        </div>
+            <table>
+                <tr><td>字符</td><td>含义</td><td>等价类</td></tr>
+                <tr><td>\d</td><td>数字字符</td><td>[0-9]</td></tr>
+                <tr><td>\D</td><td>非数字字符</td><td>[^0-9]</td></tr>
+                <tr><td>\w</td><td>单词字符（字母数字下划线）</td><td>[0-9a-zA-Z_]</td></tr>
+                <tr><td>{n}</td><td>出现n次</td><td>等价类</td></tr>
+                <tr><td>{n，m}</td><td>出现n-m次</td><td>等价类</td></tr>
+            </table>
+    </body>
+</html>
